@@ -1,0 +1,10 @@
+namespace: backend
+flags:
+  - key: awesomeNewFeature
+    name: Awesome New Feature
+    enabled: true
+    variants:
+      - key: enabled
+        name: Enabled
+      - key: disabled
+        name: Disabled
