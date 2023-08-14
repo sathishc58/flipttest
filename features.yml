@@ -2,7 +2,7 @@ namespace: default
 flags:
   - key: awesomeNewFeature
     name: Awesome New Feature
-    enabled: true
+    enabled: false
     variants:
       - key: enabled
         name: Enabled
