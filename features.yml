@@ -8,3 +8,29 @@ flags:
         name: Enabled
       - key: disabled
         name: Disabled
+    rules:
+      - segment: internal-users
+        rank: 1
+        distributions:
+          - variant: enabled
+            rollout: 100
+      - segment: all-users
+        rank: 2
+        distributions:
+          - variant: enabled
+            rollout: 20
+          - variant: disabled
+            rollout: 80
+
+segments:
+  - key: internal-users
+    name: Internal Users
+    constraints:
+      - type: STRING_COMPARISON_TYPE
+        property: organization
+        operator: eq
+        value: internal
+    match_type: ALL_MATCH_TYPE
+  - key: all-users
+    name: All Users
+    match_type: ALL_MATCH_TYPE
