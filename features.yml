@@ -22,19 +22,6 @@ flags:
           - variant: disabled
             rollout: 80
 
-segments:
-  - key: internal-users
-    name: Internal Users
-    constraints:
-      - type: STRING_COMPARISON_TYPE
-        property: organization
-        operator: eq
-        value: internal
-    match_type: ALL_MATCH_TYPE
-  - key: all-users
-    name: All Users
-    match_type: ALL_MATCH_TYPE
-
 namespace: default
 flags:
   - key: awesomeSecondFeature
@@ -58,6 +45,21 @@ flags:
             rollout: 50
           - variant: disabled
             rollout: 90
+
+
+segments:
+  - key: internal-users
+    name: Internal Users
+    constraints:
+      - type: STRING_COMPARISON_TYPE
+        property: organization
+        operator: eq
+        value: internal
+    match_type: ALL_MATCH_TYPE
+  - key: all-users
+    name: All Users
+    match_type: ALL_MATCH_TYPE
+
 
 segments:
   - key: external-users
