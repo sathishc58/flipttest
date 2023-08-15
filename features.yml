@@ -21,32 +21,7 @@ flags:
             rollout: 30
           - variant: disabled
             rollout: 80
-
-namespace: default
-flags:
-  - key: awesomeSecondFeature
-    name: Awesome Second Feature
-    enabled: true
-    variants:
-      - key: newkey1
-        name: Enabled
-      - key: newkey2
-        name: Disabled
-    rules:
-      - segment: external-users
-        rank: 1
-        distributions:
-          - variant: enabled
-            rollout: 100
-      - segment: no-users
-        rank: 2
-        distributions:
-          - variant: enabled
-            rollout: 50
-          - variant: disabled
-            rollout: 90
-
-
+            
 segments:
   - key: internal-users
     name: Internal Users
@@ -59,28 +34,3 @@ segments:
   - key: all-users
     name: All Users
     match_type: ALL_MATCH_TYPE
-
-
-segments:
-  - key: external-users
-    name: External Users
-    constraints:
-      - type: STRING_COMPARISON_TYPE
-        property: organization
-        operator: eq
-        value: external
-    match_type: ALL_MATCH_TYPE
-  - key: no-users
-    name: No Users
-    match_type: ALL_MATCH_TYPE
-
-namespace: newnamespace
-flags:
-  - key: AnotherNamespace
-    name: Awesome Another Namespace
-    enabled: true
-    variants:
-      - key: newkey3
-        name: Enabled
-      - key: newkey4
-        name: Disabled
