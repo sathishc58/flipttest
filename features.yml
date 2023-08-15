@@ -34,3 +34,15 @@ segments:
   - key: all-users
     name: All Users
     match_type: ALL_MATCH_TYPE
+
+
+namespace: newnamespace
+flags:
+  - key: AnotherNamespace
+    name: Awesome Another Namespace
+    enabled: true
+    variants:
+      - key: newkey3
+        name: Enabled
+      - key: newkey4
+        name: Disabled
